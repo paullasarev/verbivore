@@ -1,0 +1,37 @@
+{
+  "name": "verbivore",
+  "version": "0.0.1",
+  "description": "dictionary app",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paullasarev/verbivore.git"
+  },
+  "keywords": [
+    "dictionary"
+  ],
+  "author": "paullasarev@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paullasarev/verbivore/issues"
+  },
+  "homepage": "https://github.com/paullasarev/verbivore",
+  "devDependencies": {
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-mocha": "^0.1.10",
+    "mocha": "^2.1.0",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "gulp": "^3.8.10",
+    "karma": "^0.12.28",
+    "requirejs": "^2.1.15",
+    "karma-requirejs": "^0.2.2",
+    "gulp-connect": "^2.2.0",
+    "gulp-rimraf": "^0.1.1"
+  },
+  "dependencies": {
+    "morgan": "^1.5.0"
+  }
+}

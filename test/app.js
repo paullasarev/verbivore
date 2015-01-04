@@ -30,4 +30,13 @@ describe('marionette app', function() {
     assert.ok(started);
   });
 
+  it('should have content region', function() {
+    var app = new global.Verbivore.Application();
+    assert.ok(app.contentRegion);
+    var content = app.getRegion('contentRegion');
+    assert.ok(content);
+    assert.ok(content instanceof global.Backbone.Marionette.Region);
+  });
+
+  
 });

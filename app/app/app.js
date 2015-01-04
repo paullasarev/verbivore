@@ -2,8 +2,11 @@
 (function(global, Marionette){
   global.Verbivore = global.Verbivore || {};
   
-  global.Verbivore.Application = Marionette.Application.extend({
-
+  var app = global.Verbivore.Application = Marionette.Application.extend({
+    regions: {
+      contentRegion: '#content',
+    },
   });
+
 
 })(window, window.Backbone.Marionette);

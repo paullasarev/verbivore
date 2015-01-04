@@ -5,7 +5,7 @@ module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: 'dist',
 
 
     // frameworks to use
@@ -24,14 +24,15 @@ module.exports = function(config) {
       {pattern: "bower_components/backbone.marionette/lib/backbone.marionette.js", watched:false, included:true, served:true},
       {pattern: "bower_components/backbone.babysitter/lib/backbone.babysitter.js", watched:false, included:true, served:true},
       {pattern: "bower_components/backbone.wreqr/lib/backbone.wreqr.js", watched:false, included:true, served:true},
-      'app/app/app.js',
-      'app/app/app.css',
+      'app/app.js',
+      'app/app.css',
+      'start_app.js',
       // 'test/*.js',
       {pattern: 'bower_components/assert/assert.js', watched:false, included:true, served:true},
       {pattern: 'bower_components/tdstyle/tdstyle.js', watched:false, included:true, served:true},
       // {pattern: './app/**/*.html', watched:true, included:false, served:true},
       // {pattern: './test/*.html', watched:true, included:false, served:true},
-      'test/app.js',
+      '../test/app.js',
 
     ],
 

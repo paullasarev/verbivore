@@ -5,6 +5,7 @@
   var app = global.Verbivore.Application = Marionette.Application.extend({
     regions: {
       contentRegion: '#content',
+      headerRegion: '#header',
     },
   });
 

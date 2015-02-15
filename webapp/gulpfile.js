@@ -17,13 +17,13 @@ gulp.task('clean:dist', function() {
 });
 
 gulp.task('scripts', function() {
-  var bundler = browserify('./app/scripts/app.js', {
+  var bundler = browserify('./app/scripts/app_start.js', {
     extensions: ['.jsx'],
     debug: env == 'dev'
   }).transform('reactify');
 
   return bundler.bundle()
-    .pipe(source('app.js'))
+    .pipe(source('app_start.js'))
     .pipe(gulp.dest('.tmp/scripts'));
 });
 

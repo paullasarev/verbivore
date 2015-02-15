@@ -2,8 +2,9 @@
 describe('HomePage', function() {
   var assert = require('assert');
   var React = require('react/addons');
-  var Home = require('../app/scripts/components/home.jsx');
+  var HomeFactory = require('../app/scripts/components/home.jsx');
   var TestUtils = React.addons.TestUtils;
+  var Home = HomeFactory([]);
 
   it('shows text', function() {
 

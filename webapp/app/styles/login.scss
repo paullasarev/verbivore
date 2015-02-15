@@ -1,0 +1,33 @@
+.login {
+  width: 413px;
+  // left: 0;
+  // right: 0;
+  // margin: auto;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+
+  .login__user {
+    display:block;
+    width: 413px;
+    box-sizing: border-box;
+  }
+  .login__password {
+    display:block;
+    width: 413px;
+    box-sizing: border-box;
+
+  }
+  .login__details {
+
+  }
+  .login__submit {
+    display:block;
+    width: 413px;
+    box-sizing: border-box;
+
+  }
+}

@@ -11,6 +11,9 @@ module.exports = function(config) {
         // list of files / patterns to load in the browser
         files: [
             // 'test/client/support/phantomjs-shims.js',
+            '.tmp/styles/*.css',
+            'app/vendor/jquery/dist/jquery.js',
+            'app/vendor/tdstyle/tdstyle.js',
             'test/**/*.jsx'
         ],
 

@@ -1,6 +1,8 @@
 var React = require('react');
 var Router = require('react-router');
 var Route = Router.Route;
+var Redirect = Router.Redirect;
+var NotFoundRoute = Router.NotFoundRoute;
 var DefaultRoute = Router.DefaultRoute;
 
 
@@ -19,16 +21,30 @@ var AuthMixin = function(auth) {
   };
 };
 
+var RedirectToRoot = React.createClass({
+  statics: {
+    willTransitionTo: function (transition) {
+      transition.redirect('/');
+    }
+  },
+
+  render: function () {
+    return null;
+  }
+});
 
 function App(auth) {
   var Home = HomeFactory([new AuthMixin(auth)]);
   this.routes = (
     <Route name="layout" path="/" handler={Layout}>
       <Route name="login" handler={Login}/>
-      <DefaultRoute handler={Home} />
+      <DefaultRoute handler={Home}/>
+      <NotFoundRoute handler={RedirectToRoot}/>
     </Route>
   );
 }
+
+      // <Redirect from="*" to="/"/>
 
 //fix the default abort handler for wrong behaviour on server
 //see https://github.com/rackt/react-router/issues/612

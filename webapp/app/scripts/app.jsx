@@ -11,6 +11,7 @@ var Login = require('./components/login.jsx');
 var AuthMixin = function(auth) {
   this.statics = {
     willTransitionTo: function (transition) {
+      // console.log('auth.isLoggedIn()', auth.isLoggedIn())
       if (!auth.isLoggedIn()) {
         transition.redirect('login');
       }
@@ -18,20 +19,6 @@ var AuthMixin = function(auth) {
   };
 };
 
-//fix the default abort handler for wrong behaviour on server
-//see https://github.com/rackt/react-router/issues/612
-var handleAbort = function (abortReason, location) {
-  if (typeof location === 'string')
-    throw new Error('Unhandled aborted transition! Reason: ' + abortReason);
-
-  if (abortReason.constructor.name ===  'Cancellation') {
-    return;
-  } else if (abortReason.constructor.name === 'Redirect') {
-    location.replace(this.makePath(abortReason.to, abortReason.params, abortReason.query));
-  } else {
-    location.pop();
-  }
-};
 
 function App(auth) {
   var Home = HomeFactory([new AuthMixin(auth)]);
@@ -43,22 +30,44 @@ function App(auth) {
   );
 }
 
+//fix the default abort handler for wrong behaviour on server
+//see https://github.com/rackt/react-router/issues/612
+App.handleAbort = function (abortReason, location) {
+  if (typeof location === 'string') {
+    if(App.onHandleAbort) {
+      App.onHandleAbort(abortReason, location);
+      return;
+    } else {
+      throw new Error('Unhandled aborted transition! location:' +  location + ' Reason: ' + abortReason.to);
+    }
+  }
+
+  if (abortReason.constructor.name ===  'Cancellation') {
+    return;
+  } else if (abortReason.constructor.name === 'Redirect') {
+    location.replace(this.makePath(abortReason.to, abortReason.params, abortReason.query));
+  } else {
+    location.pop();
+  }
+};
+
 App.prototype.run = function() {
   var cb;
-
-  var router = Router.create({
+  var config = {
     routes: this.routes,
-    onAbort: handleAbort,
-  });
-
+    onAbort: App.handleAbort,
+  }
   if (arguments.length>1) {
-    router.location = arguments[0];
+    config.location = arguments[0];
     cb = arguments[1];
   }  else {
     cb = arguments[0];
   }
 
+  var router = Router.create(config);
+
   router.run(cb);
+  return router;
 }
 
 App.prototype.start = function() {

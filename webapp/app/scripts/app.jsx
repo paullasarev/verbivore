@@ -43,14 +43,19 @@ function App(auth) {
   );
 }
 
-App.prototype.run = function(location, cb) {
+App.prototype.run = function() {
+  var cb;
+
   var router = Router.create({
     routes: this.routes,
     onAbort: handleAbort,
   });
 
-  if (location) {
-    router.location = location;
+  if (arguments.length>1) {
+    router.location = arguments[0];
+    cb = arguments[1];
+  }  else {
+    cb = arguments[0];
   }
 
   router.run(cb);

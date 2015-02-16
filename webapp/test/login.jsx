@@ -21,6 +21,9 @@ describe('HomePage', function() {
   var $ = require('jquery');
 
   var width = 413;
+  var height = 67;
+  var caption_font_size = 65;
+  var color_main = '#fe1107';
 
   it('shows text', function() {
 
@@ -49,11 +52,40 @@ describe('HomePage', function() {
     var html = React.renderToStaticMarkup(<Login />);
     // console.log('html', html)
     attachHtmlString(html);
+
     tdstyle.isCentered('body', '.login');
     tdstyle.isWidth('.login', width);
+
+    tdstyle.isWidth('.login__caption', width);
+    tdstyle.isHeight('.login__caption', height);
+    // tdstyle.isTextCentered('.login__caption');
+    // tdstyle.isTextVCentered('.login__caption');
+    // assert.equal('VERBIVORE', tdstyle.getText('.login__caption'));
+    // tdstyle.isFont('.login__caption', {
+    //   size: caption_font_size,
+    //   weight: 'bold',
+    //   color: color_main,
+    // });
+    
     tdstyle.isWidth('.login__user', width);
+    tdstyle.isHeight('.login__user', height);
+    tdstyle.isBox('.login__user', {
+      color:  '#fe1107',
+    });
+    tdstyle.isFont('.login__user', {
+      color:  '#fdfbfa',
+      size: 30,
+    });
+    tdstyle.isAttribute('.login__user', 'placeholder', 'Email');
+
+
     tdstyle.isWidth('.login__password', width);
+    tdstyle.isHeight('.login__password', height);
+
     tdstyle.isWidth('.login__submit', width);
-    tdstyle.areInCol('.login__user', '.login__password', '.login__submit');
+    tdstyle.isHeight('.login__submit', height);
+    
+    tdstyle.areInCol('.login__caption', '.login__user', '.login__password', '.login__submit');
+
   })
 });

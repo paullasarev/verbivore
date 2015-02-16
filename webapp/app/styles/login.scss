@@ -1,8 +1,11 @@
 .login {
-  width: 413px;
-  // left: 0;
-  // right: 0;
-  // margin: auto;
+  $login-width: 413px;
+  $login-height: 67px;
+  $login-caption-font-size: 65px;
+  $login-color: #fe1107;
+  $login-text-color: #fdfbfa;
+
+  width: $login-width;
 
   position: absolute;
   top: 50%;
@@ -10,24 +13,49 @@
   margin-right: -50%;
   transform: translate(-50%, -50%);
 
+  .login__caption {
+    display:block;
+    width: $login-width;
+    box-sizing: border-box;
+    height: $login-height;
+    // line-height: $login-height;
+    // text-align: center;
+    // font-size: $login-caption-font-size;
+    // font-weight: bold;
+    // color:  #fe1107;
+    // font-family: CooperBlack;
+    // font-family:"source-serif-pro";
+    background-image: url("/images/verbivore.png");
+    background-repeat: no-repeat;
+    background-position: center; 
+  }
+
   .login__user {
     display:block;
-    width: 413px;
+    width: $login-width;
+    height: $login-height;
     box-sizing: border-box;
+    background-color: $login-color;
+    font-size: 30px;
+    color: $login-text-color; 
   }
+
   .login__password {
     display:block;
-    width: 413px;
+    width: $login-width;
+    height: $login-height;
     box-sizing: border-box;
-
   }
+
   .login__details {
 
   }
   .login__submit {
     display:block;
-    width: 413px;
+    width: $login-width;
+    height: $login-height;
     box-sizing: border-box;
+    -webkit-appearance: none;
 
   }
 }

@@ -12,12 +12,16 @@ module.exports = function(config) {
         files: [
             // 'test/client/support/phantomjs-shims.js',
             '.tmp/styles/*.css',
+             {pattern: 'app/images/*.png', watched: true, included: false, served: true},
             'app/vendor/jquery/dist/jquery.js',
             'app/vendor/tdstyle/tdstyle.js',
             'test/**/*.jsx'
         ],
-
-        // list of files to exclude
+ 
+         proxies:  {
+            '/images': '/base/app/images',
+          },
+                // list of files to exclude
         exclude: [],
 
         // preprocess matching files before serving them to the browser

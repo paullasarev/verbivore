@@ -32,7 +32,6 @@ describe('router', function() {
   it('should route to /login when not authorized', function(done) {
     auth.setLoggedIn(false);
     App.onHandleAbort = function(reason, location) {
-      console.log('reason.constructor', reason.constructor)
       // assert.equal('Redirect', reason.constructor.name);
       assert.equal('login', reason.to);
       done();
@@ -47,8 +46,6 @@ describe('router', function() {
     auth.setLoggedIn(true);
 
     var router = app.run('/', function (Handler, state) {
-      // var str = React.renderToString(<Handler />)
-      // console.log('render2 ', str) 
       assert.equal('/', state.path);
       done();
     });

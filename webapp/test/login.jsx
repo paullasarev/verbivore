@@ -30,6 +30,8 @@ describe('Login page', function() {
   var login_placeholder_color = '#fdfbfa';
   var login_text_size = 30;
   var login_text_padding = 15;
+  var login_submit_color = '#ff8a0d';
+  var login_submit_text_size = 40;
 
   it('shows text', function() {
 
@@ -116,8 +118,19 @@ describe('Login page', function() {
     });
 
     it('should render submit', function() {
-      tdstyle.isWidth('.login__submit', width);
-      tdstyle.isHeight('.login__submit', height);
+      var sel = '.login__submit';
+      tdstyle.isWidth(sel, width);
+      tdstyle.isHeight(sel, height);
+
+      tdstyle.isBox(sel, {
+        color:  login_submit_color,
+      });
+
+      tdstyle.isFont(sel, {
+        color: login_text_color,
+        size: login_submit_text_size,
+      });
+      tdstyle.isAttribute(sel, 'value', 'Log in');
     });
 
   });

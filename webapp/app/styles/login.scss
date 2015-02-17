@@ -10,6 +10,8 @@
   $login-placeholder-color: #fdfbfa;
   $login-font-size: 30px;
   $login-text-padding: 15px;
+  $login-submit-color: #ff8a0d;
+  $login-submit-text-size: 40px;
 
   width: $login-width;
 
@@ -30,7 +32,7 @@
     padding-right: $login-text-padding;
     padding-top: 0px;
     padding-bottom: 0px;
-    
+
     width: $login-width;
     height: $login-height;
     box-sizing: border-box;
@@ -78,6 +80,8 @@
     height: $login-height;
     box-sizing: border-box;
     -webkit-appearance: none;
-
+    background-color: $login-submit-color;
+    color: $login-text-color;
+    font-size: $login-submit-text-size;
   }
 }

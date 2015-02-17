@@ -1,9 +1,30 @@
+
+
+@mixin placeholder-color($color) {
+  ::-webkit-input-placeholder {
+     color: $color;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+     color: $color;
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+     color: $color;
+  }
+
+  :-ms-input-placeholder {  
+     color: $color;
+  }
+}
+
 .login {
   $login-width: 413px;
   $login-height: 67px;
   $login-caption-font-size: 65px;
   $login-color: #fe1107;
   $login-text-color: #fdfbfa;
+  $login-placeholder-color: #fdfbfa;
 
   width: $login-width;
 
@@ -38,7 +59,8 @@
     box-sizing: border-box;
     background-color: $login-color;
     font-size: 30px;
-    color: $login-text-color; 
+    color: $login-text-color;
+    @include placeholder-color($login-placeholder-color);
   }
 
   .login__password {

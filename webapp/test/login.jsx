@@ -25,6 +25,11 @@ describe('HomePage', function() {
   var height = 67;
   var caption_font_size = 65;
   var color_main = '#fe1107';
+  var login_color = '#fe1107';
+  var login_text_color = '#fdfbfa';
+  var login_placeholder_color = '#fdfbfa';
+  var login_text_size = 30;
+  var login_text_padding = 15;
 
   it('shows text', function() {
 
@@ -71,11 +76,14 @@ describe('HomePage', function() {
     tdstyle.isWidth('.login__user', width);
     tdstyle.isHeight('.login__user', height);
     tdstyle.isBox('.login__user', {
-      color:  '#fe1107',
+      color:  login_color,
+      padding: '0 ' + login_text_padding + "px 0 " + login_text_padding + "px",
+      'padding-left': login_text_padding,
+      'padding-right': login_text_padding,
     });
     tdstyle.isFont('.login__user', {
-      color:  '#fdfbfa',
-      size: 30,
+      color: login_text_color,
+      size: login_text_size,
     });
     tdstyle.isAttribute('.login__user', 'placeholder', 'Email');
 

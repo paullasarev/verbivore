@@ -1,22 +1,5 @@
+@import "compass/css3";
 
-
-@mixin placeholder-color($color) {
-  ::-webkit-input-placeholder {
-     color: $color;
-  }
-
-  :-moz-placeholder { /* Firefox 18- */
-     color: $color;
-  }
-
-  ::-moz-placeholder {  /* Firefox 19+ */
-     color: $color;
-  }
-
-  :-ms-input-placeholder {  
-     color: $color;
-  }
-}
 
 .login {
   $login-width: 413px;
@@ -25,6 +8,8 @@
   $login-color: #fe1107;
   $login-text-color: #fdfbfa;
   $login-placeholder-color: #fdfbfa;
+  $login-font-size: 30px;
+  $login-text-padding: 15px;
 
   width: $login-width;
 
@@ -34,6 +19,25 @@
   margin-right: -50%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
+
+  @mixin login-input {
+    @include input-placeholder {
+        color: $login-placeholder-color;
+        // font-style: italic;
+      }
+
+    padding-left: $login-text-padding;
+    padding-right: $login-text-padding;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    
+    width: $login-width;
+    height: $login-height;
+    box-sizing: border-box;
+    background-color: $login-color;
+    font-size: $login-font-size;
+    color: $login-text-color;
+  }
 
   .login__caption {
     display:block;
@@ -54,13 +58,7 @@
 
   .login__user {
     display:block;
-    width: $login-width;
-    height: $login-height;
-    box-sizing: border-box;
-    background-color: $login-color;
-    font-size: 30px;
-    color: $login-text-color;
-    @include placeholder-color($login-placeholder-color);
+    @include login-input;
   }
 
   .login__password {

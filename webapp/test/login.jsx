@@ -1,3 +1,4 @@
+require('./common.js');
 var $ = window.jQuery;
 var tdstyle = window.tdstyle;
 

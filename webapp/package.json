@@ -32,13 +32,15 @@
     "react-tools": "^0.12.0",
     "run-sequence": "~1.0.2",
     "vinyl-source-stream": "~1.0.0",
-    "karma-chrome-launcher": "*",
     "karma-mocha": "*",
     "mocha": "*",
-    "karma-phantomjs-launcher": "*",
     "karma": "*",
     "karma-browserify": "*",
+    "karma-phantomjs-launcher": "*",
+    "karma-chrome-launcher": "*",
     "karma-safari-launcher": "*",
+    "karma-firefox-launcher": "*",
+    "karma-ie-launcher": "*",
     "jquery": "^2.1.3"
   },
   "engines": {

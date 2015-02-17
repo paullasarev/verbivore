@@ -1,5 +1,10 @@
 module.exports = function(config) {
-    config.set({
+        var browsers = ['Chrome', 'Firefox','PhantomJS'];
+          if (/^win/.test(process.platform))
+            browsers.push('IE');
+          if (process.platform === 'darwin')
+            browsers.push('Safari');    
+            config.set({
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
         basePath: '',
@@ -57,7 +62,7 @@ module.exports = function(config) {
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
         //browsers: ['Chrome', 'Firefox', 'PhantomJS'],
-        browsers: ['Chrome'],
+        browsers: browsers,
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits

@@ -5,7 +5,6 @@ var Redirect = Router.Redirect;
 var NotFoundRoute = Router.NotFoundRoute;
 var DefaultRoute = Router.DefaultRoute;
 
-
 var Layout = require('./components/layout.jsx');
 var HomeFactory = require('./components/home.jsx');
 var Login = require('./components/login.jsx');

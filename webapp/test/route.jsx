@@ -1,3 +1,5 @@
+require('./common.js');
+
 describe('router', function() {
 
   var assert = require('assert');

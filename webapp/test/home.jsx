@@ -1,3 +1,4 @@
+require('./common.js');
 
 describe('HomePage', function() {
   var assert = require('assert');

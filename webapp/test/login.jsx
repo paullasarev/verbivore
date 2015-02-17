@@ -54,47 +54,60 @@ describe('HomePage', function() {
     // console.log('submitDom', submitDom.props) 
   });
 
-  it('should render login', function(){
+  describe('login rendering', function() {
     var html = React.renderToStaticMarkup(<Login />);
-    // console.log('html', html)
     attachHtmlString(html);
 
-    tdstyle.isCentered('body', '.login');
-    tdstyle.isWidth('.login', width);
+    it('should render login', function() {
 
-    tdstyle.isWidth('.login__caption', width);
-    tdstyle.isHeight('.login__caption', height);
-    // tdstyle.isTextCentered('.login__caption');
-    // tdstyle.isTextVCentered('.login__caption');
-    // assert.equal('VERBIVORE', tdstyle.getText('.login__caption'));
-    // tdstyle.isFont('.login__caption', {
-    //   size: caption_font_size,
-    //   weight: 'bold',
-    //   color: color_main,
-    // });
-    
-    tdstyle.isWidth('.login__user', width);
-    tdstyle.isHeight('.login__user', height);
-    tdstyle.isBox('.login__user', {
-      color:  login_color,
-      padding: '0 ' + login_text_padding + "px 0 " + login_text_padding + "px",
-      'padding-left': login_text_padding,
-      'padding-right': login_text_padding,
+      tdstyle.isCentered('body', '.login');
+      tdstyle.isWidth('.login', width);
+
+      tdstyle.areInCol('.login__caption', '.login__user', '.login__password', '.login__submit');
     });
-    tdstyle.isFont('.login__user', {
-      color: login_text_color,
-      size: login_text_size,
+
+    it('should render caption', function() {
+
+      tdstyle.isWidth('.login__caption', width);
+      tdstyle.isHeight('.login__caption', height);
+
+      // for text version:
+      // tdstyle.isTextCentered('.login__caption');
+      // tdstyle.isTextVCentered('.login__caption');
+      // assert.equal('VERBIVORE', tdstyle.getText('.login__caption'));
+      // tdstyle.isFont('.login__caption', {
+      //   size: caption_font_size,
+      //   weight: 'bold',
+      //   color: color_main,
+      // });
     });
-    tdstyle.isAttribute('.login__user', 'placeholder', 'Email');
 
+    it('should render user', function() {
+      tdstyle.isWidth('.login__user', width);
+      tdstyle.isHeight('.login__user', height);
+      tdstyle.isBox('.login__user', {
+        color:  login_color,
+        padding: '0 ' + login_text_padding + "px 0 " + login_text_padding + "px",
+        'padding-left': login_text_padding,
+        'padding-right': login_text_padding,
+      });
+      tdstyle.isFont('.login__user', {
+        color: login_text_color,
+        size: login_text_size,
+      });
+      tdstyle.isAttribute('.login__user', 'placeholder', 'Email');
+    });
 
-    tdstyle.isWidth('.login__password', width);
-    tdstyle.isHeight('.login__password', height);
+    it('should render password', function() {
+      tdstyle.isWidth('.login__password', width);
+      tdstyle.isHeight('.login__password', height);
+    });
 
-    tdstyle.isWidth('.login__submit', width);
-    tdstyle.isHeight('.login__submit', height);
-    
-    tdstyle.areInCol('.login__caption', '.login__user', '.login__password', '.login__submit');
+    it('should render submit', function() {
+      tdstyle.isWidth('.login__submit', width);
+      tdstyle.isHeight('.login__submit', height);
+    });
 
-  })
+  });
+
 });

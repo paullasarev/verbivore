@@ -11,7 +11,12 @@
   $login-font-size: 30px;
   $login-text-padding: 15px;
   $login-submit-color: #ff8a0d;
+  $login-submit-color-active: #e37906;
   $login-submit-text-size: 40px;
+  $login-border-radius: 8px;
+  $login-input-gap: 2px;
+  $login-submit-gap: 15px;
+  $login_fill_height: 20px;
 
   width: $login-width;
 
@@ -22,10 +27,22 @@
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
 
+  @mixin login-block {
+    width: $login-width;
+    height: $login-height;
+    box-sizing: border-box;
+    background-color: $login-color;
+    font-size: $login-font-size;
+    color: $login-text-color;
+
+    box-shadow: none;
+    border: none;
+    outline:none;
+  }
+
   @mixin login-input {
     @include input-placeholder {
         color: $login-placeholder-color;
-        // font-style: italic;
       }
 
     padding-left: $login-text-padding;
@@ -33,12 +50,8 @@
     padding-top: 0px;
     padding-bottom: 0px;
 
-    width: $login-width;
-    height: $login-height;
-    box-sizing: border-box;
-    background-color: $login-color;
-    font-size: $login-font-size;
-    color: $login-text-color;
+    @include login_block;
+
   }
 
   .login__caption {
@@ -46,6 +59,8 @@
     width: $login-width;
     box-sizing: border-box;
     height: $login-height;
+
+    // text version: 
     // line-height: $login-height;
     // text-align: center;
     // font-size: $login-caption-font-size;
@@ -53,6 +68,7 @@
     // color:  #fe1107;
     // font-family: CooperBlack;
     // font-family:"source-serif-pro";
+
     background-image: url("/images/verbivore.png");
     background-repeat: no-repeat;
     background-position: center; 
@@ -61,14 +77,21 @@
   .login__user {
     display:block;
     @include login-input;
+    margin-bottom: $login-input-gap;
+    border-radius: $login-border-radius $login-border-radius 0 0;
   }
 
   .login__password {
     display:block;
     @include login-input;
-    // width: $login-width;
-    // height: $login-height;
-    // box-sizing: border-box;
+    margin-bottom: $login-input-gap;
+  }
+
+  .login__fill {
+    @include login_block;
+    height: $login_fill_height;
+    margin-bottom: $login-input-gap;
+    border-radius: 0 0 $login-border-radius $login-border-radius;
   }
 
   .login__details {
@@ -83,5 +106,14 @@
     background-color: $login-submit-color;
     color: $login-text-color;
     font-size: $login-submit-text-size;
+    box-shadow: none;
+    margin-top: $login-submit-gap;
+    border-radius: $login-border-radius;
+    border: none;
+    cursor: pointer;
+    outline:none;
+    &:active {
+      background-color: $login-submit-color-active;
+    }
   }
 }

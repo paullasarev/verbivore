@@ -32,6 +32,7 @@ describe('Login page', function() {
   var login_text_padding = 15;
   var login_submit_color = '#ff8a0d';
   var login_submit_text_size = 40;
+  var fill_height = 20;
 
   it('shows text', function() {
 
@@ -131,6 +132,12 @@ describe('Login page', function() {
         size: login_submit_text_size,
       });
       tdstyle.isAttribute(sel, 'value', 'Log in');
+    });
+
+    it('should render fill', function() {
+      var sel = '.login__fill';
+      tdstyle.isWidth(sel, width);
+      tdstyle.isHeight(sel, fill_height);
     });
 
   });

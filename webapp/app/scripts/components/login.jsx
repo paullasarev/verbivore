@@ -9,6 +9,7 @@ var Login = React.createClass({
         <div className="login__caption"/>
         <input className="login__user" placeholder="Email"/>
         <input className="login__password" placeholder="Password" type="password"/>
+        <div className="login__fill"/>
         <input type="button" className="login__submit" value="Log in"/>
       </div>
     );

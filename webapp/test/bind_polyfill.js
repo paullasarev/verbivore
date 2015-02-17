@@ -1,3 +1,4 @@
+// see https://github.com/facebook/react/issues/945
 (function() {
 
 var Ap = Array.prototype;

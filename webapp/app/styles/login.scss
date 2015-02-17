@@ -63,9 +63,10 @@
 
   .login__password {
     display:block;
-    width: $login-width;
-    height: $login-height;
-    box-sizing: border-box;
+    @include login-input;
+    // width: $login-width;
+    // height: $login-height;
+    // box-sizing: border-box;
   }
 
   .login__details {

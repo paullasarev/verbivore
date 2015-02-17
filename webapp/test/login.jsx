@@ -14,7 +14,7 @@ function attachHtmlString(fixture) {
 }
 
 
-describe('HomePage', function() {
+describe('Login page', function() {
   var assert = require('assert');
   var React = require('react/addons');
   var Login = require('../app/scripts/components/login.jsx');
@@ -54,7 +54,7 @@ describe('HomePage', function() {
     // console.log('submitDom', submitDom.props) 
   });
 
-  describe('login rendering', function() {
+  describe('rendering', function() {
     var html = React.renderToStaticMarkup(<Login />);
     attachHtmlString(html);
 
@@ -83,24 +83,36 @@ describe('HomePage', function() {
     });
 
     it('should render user', function() {
-      tdstyle.isWidth('.login__user', width);
-      tdstyle.isHeight('.login__user', height);
-      tdstyle.isBox('.login__user', {
+      var sel = '.login__user';
+      tdstyle.isWidth(sel, width);
+      tdstyle.isHeight(sel, height);
+      tdstyle.isBox(sel, {
         color:  login_color,
         padding: '0 ' + login_text_padding + "px 0 " + login_text_padding + "px",
         'padding-left': login_text_padding,
         'padding-right': login_text_padding,
       });
-      tdstyle.isFont('.login__user', {
+      tdstyle.isFont(sel, {
         color: login_text_color,
         size: login_text_size,
       });
-      tdstyle.isAttribute('.login__user', 'placeholder', 'Email');
+      tdstyle.isAttribute(sel, 'placeholder', 'Email');
     });
 
     it('should render password', function() {
-      tdstyle.isWidth('.login__password', width);
-      tdstyle.isHeight('.login__password', height);
+      var sel = '.login__password';
+      tdstyle.isWidth(sel, width);
+      tdstyle.isHeight(sel, height);
+      tdstyle.isBox(sel, {
+        color:  login_color,
+        padding: '0 ' + login_text_padding + "px 0 " + login_text_padding + "px",
+      });
+      tdstyle.isFont(sel, {
+        color: login_text_color,
+        size: login_text_size,
+      });
+      tdstyle.isAttribute(sel, 'placeholder', 'Password');
+      tdstyle.isAttribute(sel, 'type', 'password');
     });
 
     it('should render submit', function() {

@@ -1,4 +1,6 @@
 ## vvreact
+tasklist: https://trello.com/b/KvjVKlUv/verbivore
+
 prerequiesties:
 > npm install -g karma-cli
 > npm install -g gulp-cli

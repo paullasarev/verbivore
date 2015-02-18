@@ -1,5 +1,5 @@
 function Auth() {
-  this.loggedIn = false;
+  this.loggedIn = true;
 }
 
 Auth.prototype.isLoggedIn = function () {

@@ -28,11 +28,17 @@ describe('Login page', function() {
   var login_color = '#fe1107';
   var login_text_color = '#fdfbfa';
   var login_placeholder_color = '#fdfbfa';
-  var login_text_size = 30;
+  var login_text_size = 24;
   var login_text_padding = 15;
   var login_submit_color = '#ff8a0d';
   var login_submit_text_size = 40;
   var fill_height = 20;
+  var login_details_background_color = '#f2f2f2';
+  var login_details_text_color = '#fe1107';
+  var login_details_border_color = '#ff8a0d';
+  var login_details_text_size = 24;
+  var login_submit_gap = 15;
+  var login_input_gap = 2;
 
   it('shows text', function() {
 
@@ -66,7 +72,8 @@ describe('Login page', function() {
       tdstyle.isCentered('body', '.login');
       tdstyle.isWidth('.login', width);
 
-      tdstyle.areInCol('.login__caption', '.login__user', '.login__password', '.login__submit');
+      tdstyle.areInCol('.login__caption', '.login__user', '.login__password', 
+        '.login__fill', '.login__details', '.login__submit');
     });
 
     it('should render caption', function() {
@@ -92,8 +99,6 @@ describe('Login page', function() {
       tdstyle.isBox(sel, {
         color:  login_color,
         padding: '0 ' + login_text_padding + "px 0 " + login_text_padding + "px",
-        'padding-left': login_text_padding,
-        'padding-right': login_text_padding,
       });
       tdstyle.isFont(sel, {
         color: login_text_color,
@@ -109,6 +114,7 @@ describe('Login page', function() {
       tdstyle.isBox(sel, {
         color:  login_color,
         padding: '0 ' + login_text_padding + "px 0 " + login_text_padding + "px",
+        // marginTop: login_input_gap,
       });
       tdstyle.isFont(sel, {
         color: login_text_color,
@@ -125,6 +131,7 @@ describe('Login page', function() {
 
       tdstyle.isBox(sel, {
         color:  login_submit_color,
+        // marginTop: login_submit_gap,
       });
 
       tdstyle.isFont(sel, {
@@ -136,8 +143,30 @@ describe('Login page', function() {
 
     it('should render fill', function() {
       var sel = '.login__fill';
+      tdstyle.isBox(sel, {
+        // marginTop: login_input_gap,
+      });
       tdstyle.isWidth(sel, width);
       tdstyle.isHeight(sel, fill_height);
+    });
+
+    it('should render details', function() {
+      var sel = '.login__details';
+      tdstyle.isWidth(sel, width);
+      tdstyle.isHeight(sel, height);
+      tdstyle.isBox(sel, {
+        color:  login_details_background_color,
+        marginTop: login_submit_gap,
+        border: 'solid 1px ' + login_details_border_color,
+      });
+      // tdstyle.isColor(sel, 'border-color', login_details_border_color);
+      tdstyle.isFont(sel, {
+        color: login_details_text_color,
+        size: login_details_text_size,
+      });
+      tdstyle.isTextCentered(sel);
+      tdstyle.isTextVCentered(sel);
+      assert.equal('Your details were incorrect', tdstyle.getText(sel));
     });
 
   });

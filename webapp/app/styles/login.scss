@@ -8,7 +8,7 @@
   $login-color: #fe1107;
   $login-text-color: #fdfbfa;
   $login-placeholder-color: #fdfbfa;
-  $login-font-size: 30px;
+  $login-font-size: 24px;
   $login-text-padding: 15px;
   $login-submit-color: #ff8a0d;
   $login-submit-color-active: #e37906;
@@ -16,7 +16,13 @@
   $login-border-radius: 8px;
   $login-input-gap: 2px;
   $login-submit-gap: 15px;
-  $login_fill_height: 20px;
+  $login-fill-height: 20px;
+
+  $login-details-background-color: #f2f2f2;
+  $login-details-text-color: #fe1107;
+  $login-details-border-color: #ff8a0d;
+  $login-details-text-size: 24px;
+  $login-details-border: solid 1px $login-submit-color;
 
   width: $login-width;
 
@@ -89,14 +95,30 @@
 
   .login__fill {
     @include login_block;
-    height: $login_fill_height;
+    height: $login-fill-height;
     margin-bottom: $login-input-gap;
     border-radius: 0 0 $login-border-radius $login-border-radius;
   }
 
   .login__details {
+    width: $login-width;
+    height: $login-height;
+    box-sizing: border-box;
 
+    box-shadow: none;
+    outline:none;
+
+    border: $login_details_border;
+    border-radius: $login-border-radius;
+    background-color: $login-details-background-color;
+    border-color: $login-details-border-color;
+    font-size: $login-details-text-size;
+    color: $login-details-text-color;
+    text-align: center;
+    line-height: $login-height;
+    margin-top: $login-submit-gap;
   }
+
   .login__submit {
     display:block;
     width: $login-width;

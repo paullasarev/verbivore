@@ -119,7 +119,7 @@
     margin-top: $login-submit-gap;
   }
 
-  .login__submit {
+  .login__submit, .login__register {
     display:block;
     width: $login-width;
     height: $login-height;

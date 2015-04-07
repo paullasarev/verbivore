@@ -8,6 +8,7 @@ var DefaultRoute = Router.DefaultRoute;
 var Layout = require('./components/layout.jsx');
 var HomeFactory = require('./components/home.jsx');
 var Login = require('./components/login.jsx');
+var Register = require('./components/register.jsx');
 
 var AuthMixin = function(auth) {
   this.statics = {
@@ -37,6 +38,7 @@ function App(auth) {
   this.routes = (
     <Route name="layout" path="/" handler={Layout}>
       <Route name="login" handler={Login}/>
+      <Route name="register" handler={Register}/>
       <DefaultRoute handler={Home}/>
       <NotFoundRoute handler={RedirectToRoot}/>
     </Route>

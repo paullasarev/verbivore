@@ -19,7 +19,7 @@ describe('Login page', function() {
   var React = require('react/addons');
   var Login = require('../app/scripts/components/login.jsx');
   var TestUtils = React.addons.TestUtils;
-  var $ = require('jquery');
+  // var $ = require('jquery');
 
   var width = 413;
   var height = 67;
@@ -73,7 +73,7 @@ describe('Login page', function() {
       tdstyle.isWidth('.login', width);
 
       tdstyle.areInCol('.login__caption', '.login__user', '.login__password', 
-        '.login__fill', '.login__details', '.login__submit');
+        '.login__fill', '.login__details', '.login__submit', '.login__register');
     });
 
     it('should render caption', function() {
@@ -139,6 +139,23 @@ describe('Login page', function() {
         size: login_submit_text_size,
       });
       tdstyle.isAttribute(sel, 'value', 'Log in');
+    });
+
+    it('should render register', function() {
+      var sel = '.login__register';
+      tdstyle.isWidth(sel, width);
+      tdstyle.isHeight(sel, height);
+
+      tdstyle.isBox(sel, {
+        color:  login_submit_color,
+        // marginTop: login_submit_gap,
+      });
+
+      tdstyle.isFont(sel, {
+        color: login_text_color,
+        size: login_submit_text_size,
+      });
+      tdstyle.isAttribute(sel, 'value', 'Sign up');
     });
 
     it('should render fill', function() {

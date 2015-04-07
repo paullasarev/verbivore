@@ -15,7 +15,7 @@ describe('HomePage', function() {
     );
 
     // Verify that the title is there
-    var title = TestUtils.findRenderedDOMComponentWithTag(home, 'h1');
-    assert.equal(title.getDOMNode().textContent, '\'Allo, \'Allo!');
+    var dom = TestUtils.findRenderedDOMComponentWithClass(home, 'accordion-table');
+    assert.ok(TestUtils.isDOMComponent(dom));
   });
 });

@@ -29,6 +29,17 @@ describe('router', function() {
     });
   });
 
+  it('should render register when /register path', function(done) {
+    auth.setLoggedIn(true);
+
+    var router = app.run('/register', function (Handler, state) {
+      var doc = TestUtils.renderIntoDocument(<Handler />);
+      var el = TestUtils.findRenderedDOMComponentWithClass(doc, 'register');
+      assert.ok(TestUtils.isDOMComponent(el));
+      done();
+    });
+  });
+
   it('should route to /login when not authorized', function(done) {
     auth.setLoggedIn(false);
     App.onHandleAbort = function(reason, location) {

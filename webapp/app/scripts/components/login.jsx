@@ -12,6 +12,7 @@ var Login = React.createClass({
         <div className="login__fill"/>
         <div className="login__details">Your details were incorrect</div>
         <input type="button" className="login__submit" value="Log in"/>
+        <input type="button" className="login__register" value="Sign up"/>
       </div>
     );
   }

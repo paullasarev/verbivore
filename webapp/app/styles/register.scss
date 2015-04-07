@@ -1,0 +1,141 @@
+@import "compass/css3";
+
+
+.register {
+  $register-width: 413px;
+  $register-height: 67px;
+  $register-caption-font-size: 65px;
+  $register-color: #fe1107;
+  $register-text-color: #fdfbfa;
+  $register-placeholder-color: #fdfbfa;
+  $register-font-size: 24px;
+  $register-text-padding: 15px;
+  $register-submit-color: #ff8a0d;
+  $register-submit-color-active: #e37906;
+  $register-submit-text-size: 40px;
+  $register-border-radius: 8px;
+  $register-input-gap: 2px;
+  $register-submit-gap: 15px;
+  $register-fill-height: 20px;
+
+  $register-details-background-color: #f2f2f2;
+  $register-details-text-color: #fe1107;
+  $register-details-border-color: #ff8a0d;
+  $register-details-text-size: 24px;
+  $register-details-border: solid 1px $register-submit-color;
+
+  width: $register-width;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+
+  @mixin register-block {
+    width: $register-width;
+    height: $register-height;
+    box-sizing: border-box;
+    background-color: $register-color;
+    font-size: $register-font-size;
+    color: $register-text-color;
+
+    box-shadow: none;
+    border: none;
+    outline:none;
+  }
+
+  @mixin register-input {
+    @include input-placeholder {
+        color: $register-placeholder-color;
+      }
+
+    padding-left: $register-text-padding;
+    padding-right: $register-text-padding;
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    @include register_block;
+
+  }
+
+  .register__caption {
+    display:block;
+    width: $register-width;
+    box-sizing: border-box;
+    height: $register-height;
+
+    // text version: 
+    // line-height: $register-height;
+    // text-align: center;
+    // font-size: $register-caption-font-size;
+    // font-weight: bold;
+    // color:  #fe1107;
+    // font-family: CooperBlack;
+    // font-family:"source-serif-pro";
+
+    background-image: url("/images/verbivore.png");
+    background-repeat: no-repeat;
+    background-position: center; 
+  }
+
+  .register__first_name {
+    display:block;
+    @include register-input;
+    margin-bottom: $register-input-gap;
+    border-radius: $register-border-radius $register-border-radius 0 0;
+  }
+
+  .register__password, .register__surname, .register__user {
+    display:block;
+    @include register-input;
+    margin-bottom: $register-input-gap;
+  }
+
+  .register__fill {
+    @include register_block;
+    height: $register-fill-height;
+    margin-bottom: $register-input-gap;
+    border-radius: 0 0 $register-border-radius $register-border-radius;
+  }
+
+  .register__details {
+    width: $register-width;
+    height: $register-height;
+    box-sizing: border-box;
+
+    box-shadow: none;
+    outline:none;
+
+    border: $register_details_border;
+    border-radius: $register-border-radius;
+    background-color: $register-details-background-color;
+    border-color: $register-details-border-color;
+    font-size: $register-details-text-size;
+    color: $register-details-text-color;
+    text-align: center;
+    line-height: $register-height;
+    margin-top: $register-submit-gap;
+  }
+
+  .register__submit {
+    display:block;
+    width: $register-width;
+    height: $register-height;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    background-color: $register-submit-color;
+    color: $register-text-color;
+    font-size: $register-submit-text-size;
+    box-shadow: none;
+    margin-top: $register-submit-gap;
+    border-radius: $register-border-radius;
+    border: none;
+    cursor: pointer;
+    outline:none;
+    &:active {
+      background-color: $register-submit-color-active;
+    }
+  }
+}
